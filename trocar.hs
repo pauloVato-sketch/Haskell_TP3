@@ -1,0 +1,13 @@
+trocar::Int -> [Int]
+trocar 0 = []
+trocar n
+ | (n `mod` 100 > 0 && n `div`100 > 0) = trocar (n `mod` 100) ++ [100]
+ | n `mod` 100 == 0 = [100 | x<-[1..(n `div` 100)]] 
+ | (n `mod` 50 > 0 && n `div`50 > 0) = trocar (n `mod` 50) ++ [50] 
+ | n `mod` 50 == 0 = [50 | x<-[1..(n `div` 50)] ]
+ | (n `mod` 10 > 0 && n `div`10 > 0) = trocar (n `mod` 10) ++ [10] 
+ | n `mod` 10 == 0 =[10 | x<-[1..(n `div` 10)] ]
+ | (n `mod` 5 > 0 && n `div`5 > 0) = trocar (n `mod` 5) ++ [5] 
+ | n `mod` 5 == 0 = [5 | x<-[1..(n `div` 5)] ]
+ | (n `mod` 1 > 0 && n `div`1 > 0) = trocar (n `mod` 1) ++ [1] 
+ | n `mod` 1 == 0 = [1 | x<-[1..(n `div` 1)] ]
